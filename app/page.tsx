@@ -1,15 +1,11 @@
 "use client";
 
-import {LandingPageContainer} from "@/app/_components/containers/LandingPageContainer";
-import {Button} from "@/app/_components/buttons/Button";
+import LandingPage from "@/app/_components/LandingPage";
 
 export default function Home(){
   return (
     <main>
-      <LandingPageContainer>
-        <h2>Welcome to Pokemón App! </h2>
-        <Button>Start</Button>
-      </LandingPageContainer>
+        <LandingPage/>
     </main>
   )
 }
