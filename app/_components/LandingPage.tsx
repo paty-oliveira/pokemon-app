@@ -11,18 +11,19 @@ const LandingPageContainer = styled.div`
   justify-content: center;
   align-items: center;
   gap: 2.5rem;
-`
-
-const StartButton = styled.button`
-  background: rgb(240, 191, 76);
-  font-weight: bold;
-  font-size: 1rem;
-  padding: 1em 1em;
-  width: 12rem;
-  border-radius: 2rem;
-  border: 3px solid rgb(245, 107, 102);
-  cursor: pointer;
-  box-sizing: content-box;
+  
+  .nav-link-start {
+    background: rgb(240, 191, 76);
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 1rem;
+    width: 15%;
+	border-radius: 2rem;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	color: black;
+  }
 `
 
 export default function LandingPage() {
@@ -30,9 +31,7 @@ export default function LandingPage() {
 	return (
 		<LandingPageContainer>
 			<h2>Welcome to Pokemón App! </h2>
-			<Link href={"/pokemon"}>
-				<StartButton>Start</StartButton>
-			</Link>
+			<Link href={"/pokemon"} className={"nav-link-start"}>Start</Link>
 		</LandingPageContainer>
 	);
 }
