@@ -1,3 +1,5 @@
+"use client";
+
 import SearchBar from "@/app/_components/SearchBar";
 
 
