@@ -1,6 +1,6 @@
 "use client";
 
-import SearchBar from "@/app/_components/SearchBar";
+import SearchBar from "@/app/components/SearchBar";
 
 
 export default function Pokemon() {
