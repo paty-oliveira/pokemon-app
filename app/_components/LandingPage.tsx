@@ -13,7 +13,7 @@ const LandingPageContainer = styled.div`
   gap: 2.5rem;
   
   .nav-link-start {
-    background: rgb(240, 191, 76);
+    background: var(--button-color);
     font-weight: bold;
     font-size: 1rem;
     padding: 1rem;

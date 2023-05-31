@@ -1,3 +1,8 @@
+:root {
+    --button-color: rgb(240, 191, 76);
+    --background-color: rgb(245, 107, 102);
+}
+
 body {
-    background: rgb(245, 107, 102);
+    background: var(--background-color);
 }
