@@ -1,6 +1,7 @@
 // @ts-ignore
 import styled from "styled-components";
 import {BsSearch} from "react-icons/bs";
+import React, {useState} from "react";
 
 const SearchBarContainer = styled.div`
   padding: 2rem;
@@ -33,11 +34,23 @@ const SearchButton = styled.button`
   font-size: 1rem;
 `;
 
+
 export default function SearchBar() {
+	const [searchPokemon, setSearchPokemon] = useState("");
+
+	const handleSearchTermChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		const newSearchTerm = event.target.value;
+		setSearchPokemon(newSearchTerm);
+	}
+
 	return (
 		<SearchBarContainer>
-			<Input placeholder={"Search your Pokémon"} />
-			<SearchButton disabled><BsSearch/></SearchButton>
+			<Input
+				placeholder={"Search your Pokémon"}
+				value={searchPokemon}
+				onChange={handleSearchTermChange}
+			/>
+			<SearchButton><BsSearch/></SearchButton>
 		</SearchBarContainer>
 	)
 }
