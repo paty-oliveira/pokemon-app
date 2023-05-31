@@ -1,9 +1,10 @@
 :root {
     --button-color: rgb(240, 191, 76);
-    --background-color: rgb(245, 107, 102);
-    --search-bar-color: rgb(239, 78, 71);
+    --main-color-light: rgb(245, 107, 102);
+    --main-color-dark: rgb(239, 78, 71);
+    --text-card-color: rgb(52,102,175);
 }
 
 body {
-    background: var(--background-color);
+    background: var(--main-color-light);
 }

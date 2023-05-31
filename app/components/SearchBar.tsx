@@ -15,8 +15,8 @@ const Input = styled.input`
   border-radius: 0.75rem;
   width: 20%;
   padding: 0.5rem;
-  background-color: var(--search-bar-color);
-  border: var(--search-bar-color) solid 2px;
+  background-color: var(--main-color-dark);
+  border: var(--main-color-dark) solid 2px;
 
   &::placeholder {
     color: rgba(0, 0, 0, 0.42);
