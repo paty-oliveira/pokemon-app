@@ -1,5 +1,6 @@
 // @ts-ignore
 import styled from "styled-components";
+import Image from "next/image";
 
 const StyledCard = styled.div`
   width: 10%;
@@ -8,6 +9,10 @@ const StyledCard = styled.div`
   border-radius: 1rem;
   box-shadow: 0.7rem 0.4rem 0.4rem rgba(145, 7, 27, 0.46);
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   
   &:hover {
     opacity: 0.5;
@@ -17,15 +22,20 @@ const StyledCard = styled.div`
 const StyledText = styled.p`
   color: var(--text-card-color);
   font-weight: bold;
+  text-transform: capitalize;
 `;
 
-export default function Card() {
+type CardProps = {
+	name: string;
+	imageUrl: string;
+}
+
+export default function Card({ name, imageUrl }: CardProps) {
 
 	return (
 		<StyledCard>
-			<StyledText>Name: </StyledText>
-			<StyledText>Description: </StyledText>
-			<StyledText>Image</StyledText>
+			<Image src={imageUrl} alt={"Pokemon Image"} className={"pokemon-img"} width={100} height={100}/>
+			<StyledText>{name}</StyledText>
 		</StyledCard>
 	)
 }
