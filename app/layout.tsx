@@ -13,7 +13,7 @@ export const metadata = {
 export default function RootLayout({ children, }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={montserrat.className}>
+      <body className={montserrat.className} suppressHydrationWarning={true}>
       <StyledComponentsRegistry>
         {children}
       </StyledComponentsRegistry>

@@ -49,6 +49,7 @@ export default function SearchBar() {
 				placeholder={"Search your Pokémon"}
 				value={searchPokemon}
 				onChange={handleSearchTermChange}
+				name={"search-input"}
 			/>
 			<SearchButton><BsSearch/></SearchButton>
 		</SearchBarContainer>
