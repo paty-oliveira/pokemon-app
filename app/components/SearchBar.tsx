@@ -36,7 +36,7 @@ const SearchButton = styled.button`
 export default function SearchBar() {
 	return (
 		<SearchBarContainer>
-			<Input placeholder={"Search you Pokémon"} />
+			<Input placeholder={"Search your Pokémon"} />
 			<SearchButton disabled><BsSearch/></SearchButton>
 		</SearchBarContainer>
 	)
