@@ -2,8 +2,8 @@
 
 // @ts-ignore
 import styled from "styled-components";
-import SearchBar from "@/app/components/SearchBar";
-import Card from "@/app/components/Card";
+import SearchBar from "@/components/SearchBar";
+import Card from "@/components/Card";
 import {useEffect, useState} from "react";
 import axios, {AxiosError} from "axios";
 
@@ -31,7 +31,7 @@ export default function Pokemon() {
 	const [response, setResponse] = useState<GetPokemonResponse>();
 	const imgUrl = response?.sprites?.other['dream_world'].front_default;
 
-	const pokemonName = "";
+	const pokemonName = "bulbasaur";
 
 	useEffect(() => {
 		axios
