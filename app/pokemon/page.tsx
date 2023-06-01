@@ -6,7 +6,6 @@ import Card from "@/components/pokemon/Card/index";
 import {useEffect, useState} from "react";
 import axios, {AxiosError} from "axios";
 
-
 type GetPokemonResponse = {
 	sprites: {
 		other: {

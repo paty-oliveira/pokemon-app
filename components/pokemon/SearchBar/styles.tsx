@@ -30,4 +30,9 @@ export const SearchButton = styled.button`
   border: var(--button-color);
   font-weight: bold;
   font-size: 1rem;
+  cursor: pointer;
+  
+  &:hover {
+    opacity: 0.5;
+  }
 `;
