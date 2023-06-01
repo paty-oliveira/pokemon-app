@@ -4,8 +4,8 @@
 import styled from "styled-components";
 import SearchBar from "@/app/components/SearchBar";
 import Card from "@/app/components/Card";
-import {useState} from "react";
-import {pokemonById} from "@/app/mocks/pokemonById";
+import {useEffect, useState} from "react";
+import axios, {AxiosError} from "axios";
 
 const CardsContainer = styled.div`
   padding: 3rem;
@@ -17,17 +17,36 @@ const CardsContainer = styled.div`
   row-gap: 2rem;
 `;
 
+type GetPokemonResponse = {
+	sprites: {
+		other: {
+			"dream_world": {
+				front_default: any
+			}
+		}
+	}
+};
+
 export default function Pokemon() {
-	const pokemonName = pokemonById.forms[0].name;
-	const pokemonUrl = pokemonById.sprites.other.dream_world.front_default;
+	const [response, setResponse] = useState<GetPokemonResponse>();
+	const imgUrl = response?.sprites?.other['dream_world'].front_default;
+
+	const pokemonName = "";
+
+	useEffect(() => {
+		axios
+			.get<GetPokemonResponse>("https://pokeapi.co/api/v2/pokemon/" + pokemonName)
+			.then((response) => setResponse(response.data))
+			.catch((error: AxiosError) => console.log(error.message));
+
+	}, [pokemonName]);
 
 	return (
 		<>
 			<SearchBar />
 			<CardsContainer>
-				<Card name={pokemonName} imageUrl={pokemonUrl}/>
+			{ pokemonName && <Card name={pokemonName} imageUrl={imgUrl} />}
 			</CardsContainer>
 		</>
 	)
-
 }
