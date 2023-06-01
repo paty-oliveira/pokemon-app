@@ -1,8 +1,7 @@
 // @ts-ignore
-import styled from "styled-components";
-import Link from "next/link";
+import styled, {StyledComponent} from "styled-components";
 
-const LandingPageContainer = styled.div`
+export const LandingPageContainer: StyledComponent<any, any> = styled.div`
   padding: 10rem;
   margin: auto;
   width: 50%;
@@ -24,14 +23,4 @@ const LandingPageContainer = styled.div`
 	text-decoration: none;
 	color: black;
   }
-`
-
-export default function LandingPage() {
-
-	return (
-		<LandingPageContainer>
-			<h2>Welcome to Pokemón App! </h2>
-			<Link href={"/pokemon"} className={"nav-link-start"}>Start</Link>
-		</LandingPageContainer>
-	);
-}
+`;

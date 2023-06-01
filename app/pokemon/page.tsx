@@ -1,21 +1,11 @@
 "use client";
 
-// @ts-ignore
-import styled from "styled-components";
-import SearchBar from "@/components/SearchBar";
-import Card from "@/components/Card";
+import {CardContainer} from "@/components/pokemon/CardContainer";
+import SearchBar from "@/components/pokemon/SearchBar/index";
+import Card from "@/components/pokemon/Card/index";
 import {useEffect, useState} from "react";
 import axios, {AxiosError} from "axios";
 
-const CardsContainer = styled.div`
-  padding: 3rem;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
-  align-items: center;
-  align-content: center;
-  row-gap: 2rem;
-`;
 
 type GetPokemonResponse = {
 	sprites: {
@@ -44,9 +34,9 @@ export default function Pokemon() {
 	return (
 		<>
 			<SearchBar />
-			<CardsContainer>
+			<CardContainer>
 			{ pokemonName && <Card name={pokemonName} imageUrl={imgUrl} />}
-			</CardsContainer>
+			</CardContainer>
 		</>
 	)
 }
