@@ -1,7 +1,9 @@
 import { configureStore} from "@reduxjs/toolkit";
-
+import searchReducer from "@/store/features/searchSlice";
 export const index = configureStore({
-	reducer: {}
+	reducer: {
+		searchPokemon: searchReducer
+	}
 });
 
 export type RootState = ReturnType<typeof index.getState>;
