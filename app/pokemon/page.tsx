@@ -5,16 +5,7 @@ import SearchBar from "@/components/pokemon/SearchBar/index";
 import Card from "@/components/pokemon/Card/index";
 import {useEffect, useState} from "react";
 import axios, {AxiosError} from "axios";
-
-type GetPokemonResponse = {
-	sprites: {
-		other: {
-			"dream_world": {
-				front_default: any
-			}
-		}
-	}
-};
+import {GetPokemonResponse} from "@/app/api/pokemons/types";
 
 export default function Pokemon() {
 	const [response, setResponse] = useState<GetPokemonResponse>();
@@ -24,7 +15,7 @@ export default function Pokemon() {
 
 	useEffect(() => {
 		axios
-			.get<GetPokemonResponse>("https://pokeapi.co/api/v2/pokemon/" + pokemonName)
+			.get<GetPokemonResponse>("/api/pokemons/" + "?name=" + pokemonName)
 			.then((response) => setResponse(response.data))
 			.catch((error: AxiosError) => console.log(error.message));
 
