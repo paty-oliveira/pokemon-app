@@ -4,7 +4,7 @@ describe("searchSlice reducer", () => {
 	it("should return the default state", function () {
 		const initialState = reducer(undefined, {});
 		const expectedState = {
-			searchTerm: ""
+			searchTerm: null
 		};
 
 		expect(initialState).toEqual(expectedState);
@@ -12,7 +12,7 @@ describe("searchSlice reducer", () => {
 
 	it("should update the search term when the user types on the Pokemon name on the Search Bar", function () {
 		const initialState = {
-			searchTerm: ""
+			searchTerm: null
 		};
 
 		const userSearchTerm = "bulbasaur";

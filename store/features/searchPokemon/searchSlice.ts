@@ -2,11 +2,11 @@ import {createSlice} from "@reduxjs/toolkit";
 import type { PayloadAction} from "@reduxjs/toolkit";
 
 type SearchState = {
-	searchTerm: string;
+	searchTerm: string | null;
 }
 
 const initialState: SearchState = {
-	searchTerm: ""
+	searchTerm: null
 };
 
 const searchSlice = createSlice({
