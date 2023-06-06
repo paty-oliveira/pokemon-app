@@ -3,10 +3,12 @@ import type { PayloadAction} from "@reduxjs/toolkit";
 
 type SearchState = {
 	searchTerm: string | null;
+	skipPreFetch: boolean;
 }
 
 const initialState: SearchState = {
-	searchTerm: null
+	searchTerm: null,
+	skipPreFetch: true
 };
 
 const searchSlice = createSlice({
@@ -15,11 +17,17 @@ const searchSlice = createSlice({
 	reducers: {
 		setSearch: (state, action: PayloadAction<string>) => {
 			state.searchTerm = action.payload;
+		},
+
+		setSkipPreFetch: (state, action: PayloadAction<boolean>) => {
+			state.skipPreFetch = action.payload;
 		}
 	}
 });
 
 export const selectSearchPokemonName = (state:any) => state.searchPokemon.searchTerm;
 
-export const { setSearch } = searchSlice.actions;
+export const selectSkipPreFetchFlag = (state:any) => state.searchPokemon.skipPreFetch;
+
+export const { setSearch, setSkipPreFetch } = searchSlice.actions;
 export default searchSlice.reducer;

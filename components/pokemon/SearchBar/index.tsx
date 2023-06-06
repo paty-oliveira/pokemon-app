@@ -2,7 +2,7 @@
 import {SearchBarContainer, Input, SearchButton} from "@/components/pokemon/SearchBar/styles";
 import {BsSearch} from "react-icons/bs";
 import React, {useRef} from "react";
-import { setSearch } from "@/store/features/searchPokemon/searchSlice";
+import { setSearch, setSkipPreFetch } from "@/store/features/searchPokemon/searchSlice";
 import { useAppDispatch } from "@/store/hooks";
 
 export default function SearchBar() {
@@ -13,6 +13,8 @@ export default function SearchBar() {
 		const newPokemon = inputRef.current.value;
 		dispatch(setSearch(newPokemon));
 		inputRef.current.value = ""
+		// More info here: https://redux-toolkit.js.org/rtk-query/usage/conditional-fetching
+		dispatch(setSkipPreFetch(false));
 	}
 
 	return (
