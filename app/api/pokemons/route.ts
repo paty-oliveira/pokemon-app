@@ -4,7 +4,7 @@ import {GetPokemonResponse} from "@/app/api/pokemons/types";
 
 export async function GET(request: Request) {
 	const { searchParams } = new URL(request.url);
-	const pokemonName = searchParams.get("name");
+	const pokemonName = searchParams.get("param");
 	const response: AxiosResponse<GetPokemonResponse> = await axios
 		.get<GetPokemonResponse>("https://pokeapi.co/api/v2/pokemon/" + pokemonName);
 

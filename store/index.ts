@@ -1,5 +1,5 @@
 import { configureStore} from "@reduxjs/toolkit";
-import searchReducer from "@/store/features/searchSlice";
+import searchReducer from "@/store/features/searchPokemon/searchSlice";
 export const index = configureStore({
 	reducer: {
 		searchPokemon: searchReducer

@@ -2,7 +2,7 @@
 import {SearchBarContainer, Input, SearchButton} from "@/components/pokemon/SearchBar/styles";
 import {BsSearch} from "react-icons/bs";
 import React, {useRef} from "react";
-import { setSearch } from "@/store/features/searchSlice";
+import { setSearch } from "@/store/features/searchPokemon/searchSlice";
 import { useAppDispatch } from "@/store/hooks";
 
 export default function SearchBar() {
