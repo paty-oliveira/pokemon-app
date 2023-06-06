@@ -1,7 +1,7 @@
-import reducer, { setSearch } from "./searchSlice";
+import reducer, { setSearch, selectSearchPokemonName } from "./searchSlice";
 
 describe("searchSlice reducer", () => {
-	it('should return the default state', function () {
+	it("should return the default state", function () {
 		const initialState = reducer(undefined, {});
 		const expectedState = {
 			searchTerm: ""
@@ -10,7 +10,7 @@ describe("searchSlice reducer", () => {
 		expect(initialState).toEqual(expectedState);
 	});
 
-	it('should update the search term when the user types on the Pokemon name on the Search Bar', function () {
+	it("should update the search term when the user types on the Pokemon name on the Search Bar", function () {
 		const initialState = {
 			searchTerm: ""
 		};
@@ -25,7 +25,4 @@ describe("searchSlice reducer", () => {
 
 		expect(currentState).toEqual(expectedState);
 	});
-
-})
-
-
+});

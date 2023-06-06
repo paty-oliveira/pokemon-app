@@ -1,28 +1,29 @@
 // @ts-ignore
 import {SearchBarContainer, Input, SearchButton} from "@/components/pokemon/SearchBar/styles";
 import {BsSearch} from "react-icons/bs";
-import React, {useState} from "react";
-import { setSearch, selectSearchPokemonName } from "@/store/features/searchSlice";
-import { useAppDispatch, useAppSelector } from "@/store/hooks";
+import React, {useRef} from "react";
+import { setSearch } from "@/store/features/searchSlice";
+import { useAppDispatch } from "@/store/hooks";
 
 export default function SearchBar() {
-	const searchPokemon = useAppSelector(selectSearchPokemonName);
 	const dispatch = useAppDispatch();
+	const inputRef = useRef<any>("");
 
-	const handleSearchTermChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-		const newPokemon = event.target.value;
+	const handleOnClick = () => {
+		const newPokemon = inputRef.current.value;
 		dispatch(setSearch(newPokemon));
+		inputRef.current.value = ""
 	}
 
 	return (
 		<SearchBarContainer>
 			<Input
 				placeholder={"Search your Pokémon"}
-				value={searchPokemon}
-				onChange={handleSearchTermChange}
+				type={"text"}
+				ref={inputRef}
 				name={"search-input"}
 			/>
-			<SearchButton><BsSearch/></SearchButton>
+			<SearchButton onClick={handleOnClick}><BsSearch/></SearchButton>
 		</SearchBarContainer>
 	)
 }

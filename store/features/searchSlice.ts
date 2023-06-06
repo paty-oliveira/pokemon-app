@@ -19,7 +19,7 @@ const searchSlice = createSlice({
 	}
 });
 
-export const selectSearchPokemonName = (state:any) => state.searchTerm;
+export const selectSearchPokemonName = (state:any) => state.searchPokemon.searchTerm;
 
 export const { setSearch } = searchSlice.actions;
 export default searchSlice.reducer;
