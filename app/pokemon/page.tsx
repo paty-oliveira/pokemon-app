@@ -9,6 +9,7 @@ import {GetPokemonResponse} from "@/app/api/pokemons/types";
 import {useAppSelector} from "@/store/hooks";
 import {selectSearchPokemonName} from "@/store/features/searchPokemon/searchSlice";
 import {getPokemonByParam} from "@/utils/api";
+import { useGetPokemonByParamQuery} from "@/store/features/api/apiSlice";
 
 export default function Pokemon() {
 	const [response, setResponse] = useState<GetPokemonResponse>();
@@ -16,18 +17,22 @@ export default function Pokemon() {
 
 	const pokemonName = useAppSelector(selectSearchPokemonName);
 
-	useEffect(() => {
-		getPokemonByParam(pokemonName)
-			.then((response) => setResponse(response))
-			.catch((error: AxiosError) => console.log(error.message));
+	// useEffect(() => {
+	// 	getPokemonByParam(pokemonName)
+	// 		.then((response) => setResponse(response))
+	// 		.catch((error: AxiosError) => console.log(error.message));
+	//
+	// }, [pokemonName]);
 
-	}, [pokemonName]);
+	const { data: pokemon, isFetching, isSuccess, isError } = useGetPokemonByParamQuery(pokemonName);
+
+
 
 	return (
 		<>
 			<SearchBar />
 			<CardContainer>
-			{ pokemonName && <Card name={pokemonName} imageUrl={imgUrl} />}
+			{/*{ pokemonName && <Card name={pokemonName} imageUrl={imgUrl} />}*/}
 			</CardContainer>
 		</>
 	)
