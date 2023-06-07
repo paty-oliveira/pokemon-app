@@ -4,7 +4,8 @@ describe("searchSlice reducer", () => {
 	it("should return the default state", function () {
 		const initialState = reducer(undefined, {});
 		const expectedState = {
-			searchTerm: null
+			searchTerm: null,
+			skipPreFetch: true
 		};
 
 		expect(initialState).toEqual(expectedState);
