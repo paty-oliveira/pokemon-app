@@ -13,7 +13,7 @@ export default function Pokemon() {
 	const searchPokemon = useAppSelector(selectSearchPokemonName);
 	const skipPreFetch = useAppSelector(selectSkipPreFetchFlag);
 
-	const { data: pokemon, isFetching, isError } = useGetPokemonByParamQuery(searchPokemon, {skip: skipPreFetch});
+	const { data: pokemon, isLoading, isFetching, isError } = useGetPokemonByParamQuery(searchPokemon, {skip: skipPreFetch});
 
 	const imgUrl = pokemon?.sprites?.other['dream_world'].front_default;
 	const pokemonName = pokemon?.forms[0].name;
@@ -24,8 +24,8 @@ export default function Pokemon() {
 			<CardContainer>
 				{
 					isError ? <Alert severity="error">The pokemon does not exist! Please try again.</Alert> :
-					isFetching ? <CircularProgress /> :
-					pokemon? <Card name={pokemonName} imageUrl={imgUrl} /> :
+					isLoading || isFetching ? <CircularProgress /> :
+					pokemon ? <Card name={pokemonName} imageUrl={imgUrl} /> :
 					null
 				}
 			</CardContainer>

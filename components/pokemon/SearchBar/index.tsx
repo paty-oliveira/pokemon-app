@@ -17,6 +17,7 @@ export default function SearchBar() {
 
 	const handleOnClick = () => {
 		dispatch(setSearch(inputValue));
+		setInputValue("");
 		// More info here: https://redux-toolkit.js.org/rtk-query/usage/conditional-fetching
 		dispatch(setSkipPreFetch(false));
 	}
