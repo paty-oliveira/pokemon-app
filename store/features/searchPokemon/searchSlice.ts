@@ -1,5 +1,5 @@
-import {createSlice} from "@reduxjs/toolkit";
-import type { PayloadAction} from "@reduxjs/toolkit";
+import {RootState} from "@/store";
+import {createSlice, PayloadAction, Slice} from "@reduxjs/toolkit";
 
 type SearchState = {
 	searchTerm: string | null;
@@ -11,7 +11,7 @@ const initialState: SearchState = {
 	skipPreFetch: true
 };
 
-const searchSlice = createSlice({
+const searchSlice:Slice = createSlice({
 	name: "searchPokemon",
 	initialState,
 	reducers: {
@@ -25,9 +25,9 @@ const searchSlice = createSlice({
 	}
 });
 
-export const selectSearchPokemonName = (state:any) => state.searchPokemon.searchTerm;
+export const selectSearchPokemonName = (state:RootState) => state.searchPokemon.searchTerm;
 
-export const selectSkipPreFetchFlag = (state:any) => state.searchPokemon.skipPreFetch;
+export const selectSkipPreFetchFlag = (state:RootState) => state.searchPokemon.skipPreFetch;
 
 export const { setSearch, setSkipPreFetch } = searchSlice.actions;
 export default searchSlice.reducer;
