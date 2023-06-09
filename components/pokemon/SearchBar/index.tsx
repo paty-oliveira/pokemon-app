@@ -10,7 +10,7 @@ export default function SearchBar() {
 	const inputRef = useRef<any>("");
 
 	const handleOnClick = () => {
-		const newPokemon = inputRef.current.value;
+		const newPokemon = inputRef.current.value.toLowerCase();
 		dispatch(setSearch(newPokemon));
 		inputRef.current.value = ""
 		// More info here: https://redux-toolkit.js.org/rtk-query/usage/conditional-fetching
