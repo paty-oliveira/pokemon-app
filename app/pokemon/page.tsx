@@ -11,16 +11,21 @@ export default function Pokemon() {
 	const searchPokemon = useAppSelector(selectSearchPokemonName);
 	const skipPreFetch = useAppSelector(selectSkipPreFetchFlag);
 
-	const { data: pokemon, isSuccess } = useGetPokemonByParamQuery(searchPokemon, {skip: skipPreFetch});
+	const { data: pokemon, isFetching, isError } = useGetPokemonByParamQuery(searchPokemon, {skip: skipPreFetch});
 
 	const imgUrl = pokemon?.sprites?.other['dream_world'].front_default;
 	const pokemonName = pokemon?.forms[0].name;
+
 
 	return (
 		<>
 			<SearchBar />
 			<CardContainer>
-			{ isSuccess && <Card name={pokemonName} imageUrl={imgUrl} />}
+				{	isError? <p>Error while getting data</p> :
+					isFetching ? <p>Loading data from server</p> :
+					pokemon? <Card name={pokemonName} imageUrl={imgUrl} /> :
+					null
+				}
 			</CardContainer>
 		</>
 	)
