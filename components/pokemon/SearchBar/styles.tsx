@@ -31,8 +31,12 @@ export const SearchButton = styled.button`
   font-weight: bold;
   font-size: 1rem;
   cursor: pointer;
-  
-  &:hover {
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &:enabled:hover {
     opacity: 0.5;
   }
 `;
