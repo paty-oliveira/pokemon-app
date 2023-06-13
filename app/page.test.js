@@ -1,8 +1,8 @@
 import { renderWithProviders } from "@/utils/test-utils";
 import { screen } from "@testing-library/react";
-import Home from "../../app/page";
+import Home from "./page";
 
-describe("<LandingPage />", () => {
+describe("Home page", () => {
     it("should render the basic elements", () => {
         renderWithProviders(<Home />);
 
