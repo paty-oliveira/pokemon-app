@@ -27,11 +27,11 @@ export default function SearchBar() {
 			<Input
 				placeholder={"Search your Pokémon"}
 				type={"text"}
-				name={"search-input"}
+				aria-label={"search-input"}
 				onChange={handleOnChange}
 				value={inputValue}
 			/>
-			<SearchButton onClick={handleOnClick} disabled={isBtnDisabled}>
+			<SearchButton aria-label="search-button" onClick={handleOnClick} disabled={isBtnDisabled}>
 				<BsSearch/>
 			</SearchButton>
 		</SearchBarContainer>
