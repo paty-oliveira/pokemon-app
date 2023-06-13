@@ -2,7 +2,7 @@ import './globals.css';
 import { Montserrat } from 'next/font/google';
 import StyledComponentsRegistry from "@/app/registry";
 import React from "react";
-import { Providers } from "@/components/providers/provider";
+import { Providers } from "@/store/providers/provider";
 
 const montserrat = Montserrat({ subsets: ['latin'] })
 
