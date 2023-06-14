@@ -1,4 +1,4 @@
-import reducer, { setSearch, selectSearchPokemonName } from "./searchSlice";
+import reducer, { setSearch, selectSearchPokemonName, selectSkipPreFetchFlag } from "./searchSlice";
 
 describe("searchSlice reducer", () => {
 	it("should return the default state", function () {
@@ -25,5 +25,35 @@ describe("searchSlice reducer", () => {
 		const currentState = reducer(initialState, setSearch(userSearchTerm));
 
 		expect(currentState).toEqual(expectedState);
+	});
+});
+
+describe("selectSearchPokemonName selector", () => {
+	it("it should retrieve the searchTerm from the store state", () => {
+		const currentState = {
+			searchPokemon: {
+				searchTerm: "bulbasaur",
+				skipPreFetch: true
+			}
+		}
+
+		const actualResult = selectSearchPokemonName(currentState);
+		const expectedResult = "bulbasaur";
+
+		expect(actualResult).toEqual(expectedResult);
+	})
+});
+
+describe("selectSkipPreFetchFlag selector", () => {
+	it("", () => {
+		const currentState = {
+			searchPokemon: {
+				searchTerm: "bulbasaur",
+				skipPreFetch: true
+			}
+		}
+
+		const actualResult = selectSkipPreFetchFlag(currentState);
+		expect(actualResult).toBeTruthy();
 	});
 });
