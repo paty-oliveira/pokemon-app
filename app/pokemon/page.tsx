@@ -6,26 +6,27 @@ import Card from "@/components/pokemon/Card/index";
 import {useEffect, useState} from "react";
 import axios, {AxiosError} from "axios";
 import {GetPokemonResponse} from "@/app/api/pokemons/types";
+import { usePokemonStore } from "@/store/store";
 
 export default function Pokemon() {
+	const {searchPokemon} = usePokemonStore();
+
 	const [response, setResponse] = useState<GetPokemonResponse>();
 	const imgUrl = response?.sprites?.other['dream_world'].front_default;
 
-	const pokemonName = "bulbasaur";
-
 	useEffect(() => {
 		axios
-			.get<GetPokemonResponse>("/api/pokemons/" + "?name=" + pokemonName)
+			.get<GetPokemonResponse>("/api/pokemons/" + "?name=" + searchPokemon)
 			.then((response) => setResponse(response.data))
 			.catch((error: AxiosError) => console.log(error.message));
 
-	}, [pokemonName]);
+	}, [searchPokemon]);
 
 	return (
 		<>
 			<SearchBar />
 			<CardContainer>
-			{ pokemonName && <Card name={pokemonName} imageUrl={imgUrl} />}
+			{ searchPokemon && <Card name={searchPokemon} imageUrl={imgUrl} />}
 			</CardContainer>
 		</>
 	)
